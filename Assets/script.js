@@ -68,6 +68,7 @@ const questions = [
     if (currentQuestionIndex < questions.length) {
       showQuestion();
     } else {
+      clearInterval(timerInterval);
       endQuiz();
     }
   }
