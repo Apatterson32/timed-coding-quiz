@@ -73,11 +73,16 @@ const questions = [
   }
  
   function startTimer() {
+    const timerCountElement = document.getElementById("timer-count");
+
     const timerInterval = setInterval(() => {
       time--;
       if (time <= 0) {
         clearInterval(timerInterval);
         endQuiz();
+        document.getElementById("finished").innerHTML = "OUT OF TIME";
+      } else {
+        timerCountElement.textContent = time; // Update timer count on screen
       }
     }, 1000);
   }
