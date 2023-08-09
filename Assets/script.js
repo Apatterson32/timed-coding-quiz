@@ -25,6 +25,7 @@ const questions = [
   const initialsInput = document.getElementById("initials");
   const saveBtn = document.getElementById("save-btn");
  
+  let timerInterval;
   let currentQuestionIndex = 0;
   let time = 60;
   let score = 0;
@@ -68,20 +69,26 @@ const questions = [
     if (currentQuestionIndex < questions.length) {
       showQuestion();
     } else {
-      clearInterval(timerInterval);
-      endQuiz();
+      clearInterval(timerInterval); // Clear the timer interval when all questions are answered
+      
+        // Check if the time ran out
+      if (time <= 0) {
+        document.getElementById("timer-count").innerHTML = "OUT OF TIME";
+      } else {
+        endQuiz();
+      }
     }
   }
  
   function startTimer() {
     const timerCountElement = document.getElementById("timer-count");
 
-    const timerInterval = setInterval(() => {
+    timerInterval = setInterval(() => {
       time--;
       if (time <= 0) {
         clearInterval(timerInterval);
         endQuiz();
-        document.getElementById("finished").innerHTML = "OUT OF TIME";
+        document.getElementById("timer-count").innerHTML = "OUT OF TIME";
       } else {
         timerCountElement.textContent = time; // Update timer count on screen
       }
