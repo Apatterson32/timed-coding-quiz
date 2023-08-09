@@ -10,7 +10,7 @@ This repository contains javascript code that creates a javacript quiz that is t
 Technology Used: Javascript, ChatGPT
 
 
-Live Deployment Link:
+Live Deployment Link: https://apatterson32.github.io/timed-coding-quiz/
 
 
 ## Contact Information:
