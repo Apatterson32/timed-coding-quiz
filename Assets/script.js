@@ -2,12 +2,12 @@ const questions = [
     {
       question: "Inside which HTML element do we put the JavaScript?",
       choices: ["<js>", "<script>", "<link>", "<div>"],
-      correctAnswer: "4"
+      correctAnswer: "<script>"
     },
     {
       question: "How does a FOR loop start?",
       choices: ["for (i = 0; i <= 5", "for (i <= 5; i++", "for i = 1 to 5", "for (i = 0; i <= 5; i++)"],
-      correctAnswer: "CSS"
+      correctAnswer: "for (i = 0; i <= 5; i++)"
     },
     {
       question: "What does 'JS' stand for?",
@@ -71,7 +71,7 @@ const questions = [
     } else {
       clearInterval(timerInterval); // Clear the timer interval when all questions are answered
       
-        // Check if the time ran out
+      
       if (time <= 0) {
         document.getElementById("timer-count").innerHTML = "OUT OF TIME";
       } else {
@@ -98,8 +98,10 @@ const questions = [
   function endQuiz() {
     quizScreen.style.display = "none";
     endScreen.style.display = "block";
-    scoreElement.textContent = score;
+
+    scoreElement.textContent = `Your Score: ${score} / ${questions.length}`;
   }
+
  
   function saveScore(event) {
     event.preventDefault();
